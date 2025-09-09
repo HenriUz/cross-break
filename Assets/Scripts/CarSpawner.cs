@@ -11,15 +11,15 @@ public class CarSpawner : MonoBehaviour {
             _spawnPoints.Add(child);
         }
     }
-    
+
     private void Start() {
         InvokeRepeating(nameof(SpawnCar), 0, 5);
     }
-    
+
     private void SpawnCar() {
         var spawnPosition = Random.Range(0, _spawnPoints.Count);
         var prefabs = spawnPosition % 2 == 0 ? 1 : 0;
-        
+
         Instantiate(carPrefabs[prefabs],  _spawnPoints[spawnPosition].position, Quaternion.identity);
     }
 }
